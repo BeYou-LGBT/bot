@@ -1,0 +1,16 @@
+{
+  "name": "sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \\\"Error: no Events specified\\\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "request": "^2.88.0",
+    "mysql": "^2.18.1"
+  }
+}
