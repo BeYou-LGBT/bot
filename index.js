@@ -4,6 +4,9 @@ const fs = require('fs');
 const config = require('./config.json')
 const login = require('./login')
 const Client = new Discord.Client();
+let Commandes = new Array();
+const Categories = new Map()
+const Path = require("path")
 try {
     Client.login(login.token);
 } catch (e) {
@@ -12,7 +15,6 @@ try {
 /*const sql = require("./sql")
 sql.SQLTestConnexion()*/
 module.exports.Client = Client;
-let Commandes = new Array();
 //const WaillProtect = require('./Protection.js')
 console.log("Chargement des commandes_old");
 let i = 0;
@@ -28,6 +30,12 @@ function loadcommandes(path) {
             if (fichier.split(".").pop() == "js") {
                 Commandes.push(`${path}/${fichier}`)
                 i++
+
+                //chargement des infos pour la commande help
+                const parentFile = Path.resolve(path, fichier).toString().replace("\\" + fichier, "").split("\\").pop()
+                if(Categories.get(parentFile) == undefined) Categories.set(parentFile, "")
+                Categories.set(parentFile, Categories.get(parentFile) + " `" + fichier.slice(0, -3) + "`")
+
             }
         })
     })
@@ -144,4 +152,5 @@ Client.on('messageReactionRemove', (reaction, user) => {
 })
 
 module.exports = Commandes;
+module.exports.Categories = Categories;
 
