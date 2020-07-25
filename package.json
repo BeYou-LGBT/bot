@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \\\"Error: no Events specified\\\" && exit 1"
+    "test": "echo \\\"Error: no Events specified\\\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +13,8 @@
     "discord.js": "^11.5.1",
     "request": "^2.88.0",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
