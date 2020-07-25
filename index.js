@@ -2,9 +2,10 @@ const Discord = require('discord.js');
 const { RichEmbed } = require('discord.js')
 const fs = require('fs');
 const config = require('./config.json')
+const login = require('./login')
 const Client = new Discord.Client();
 try {
-    Client.login(config.token);
+    Client.login(login.token);
 } catch (e) {
     console.log(`Erreur lors de la connexion à Discord: ${e}`)
 }
@@ -50,7 +51,6 @@ Client.on('ready', function(){
 
 Client.on('message', message => {
     if(message.author.bot) return;
-    console.log("beau debug")
     /*WaillProtect.antipub(message);
     WaillProtect.antispammentions(message);
     WaillProtect.antispam(message);*/
@@ -62,8 +62,9 @@ Client.on('message', message => {
         if (cmdsplit == args[0].replace(config.prefix, '') + '.js') {
             //message.channel.send('Commande existante');
             try {
-                let Cmd = require(commande)? require(commande).default : require(commande)
-                new Cmd(message, args)
+                let cmdfile = require(commande)
+                const cmd = new cmdfile()
+                cmd.execute(message, args)
             } catch (err) {
                 console.log(err)
             }
@@ -141,7 +142,6 @@ Client.on('messageReactionRemove', (reaction, user) => {
         }
     }
 })
-
 
 module.exports = Commandes;
 

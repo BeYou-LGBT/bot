@@ -1,5 +1,5 @@
-const Client = require("../index").Client;
-
+const cmdfile = require("../index").Client;
+const path = require('path')
 class Commande {
 
     constructor() {
@@ -20,5 +20,5 @@ class Commande {
     execute(message, args) {}
 }
 
-module.exports.Commande = Commande;
+module.exports = Commande;
 
