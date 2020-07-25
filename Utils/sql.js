@@ -1,5 +1,5 @@
 const mysql = require("mysql")
-const config = require("../config.json")
+const config = require("../dependencies").config
 let db = mysql.createConnection({
     host: config.sql.host,
     user: config.sql.user,

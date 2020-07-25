@@ -1,4 +1,4 @@
-const config = require('../config.json');
+const config = require('../dependencies').config
 const lastmessage = new Map();
 const msgstimer = new Map();
 const Client = require('../index.js').Client

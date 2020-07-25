@@ -1,7 +1,6 @@
 const { RichEmbed } = require('discord.js')
 const Categories = require("../../index").Categories
-const config = require('../../config.json')
-const Commande = require("../../Classes/Commande")
+const {config, Commande} = require('../../dependencies')
 class Help extends Commande {
     constructor() {
         super()

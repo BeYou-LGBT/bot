@@ -1,4 +1,4 @@
-const config = require('../config.json')
+const config = require('../dependencies').config
 const timespan = require('../Utils/timespan.js')
 
 class ModerationVerification {
