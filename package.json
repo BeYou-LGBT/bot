@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \\\"Error: no Events specified\\\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "cross-env NODE_ENV=dev && nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "cross-env": "^7.0.2"
   }
 }
