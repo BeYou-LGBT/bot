@@ -2,3 +2,4 @@ module.exports.config = process.env.NODE_ENV ? require("./config/config.dev") : 
 
 module.exports.Commande = require("./Classes/Commande")
 
+module.exports.RichEmbed = require("discord.js").RichEmbed
