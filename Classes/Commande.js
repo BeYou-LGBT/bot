@@ -1,4 +1,4 @@
-const cmdfile = require("../index").Client;
+const cmdfile = require("index").Client;
 const path = require('path')
 class Commande {
 

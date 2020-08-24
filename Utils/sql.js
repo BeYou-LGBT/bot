@@ -1,13 +1,13 @@
 const mysql = require("mysql")
-const config = require("../dependencies").config
+const config = require("config/config")
+let sql = require("../login").sql
 let db = mysql.createConnection({
-    host: config.sql.host,
-    user: config.sql.user,
-    password: config.sql.password,
-    database: config.sql.database,
+    host: sql.host,
+    user: sql.user,
+    password: sql.password,
+    database: sql.database,
     supportBigNumbers : true
 })
-let sql
 
 
 module.exports.SQLTestConnexion = function SQLTestConnexion() {
@@ -24,15 +24,20 @@ module.exports.sanction = async (sanction_type, moderator_id, user_id, date_expi
 }
 
 module.exports.checkMute = async (members) => {
-    let mute_role = this.message.client.guilds.get(config.server).roles.find(r => r.name === config.roles.mute);
+    let mute_role = config.roles.mute
     sql = `SELECT * FROM sanctions WHERE sanction_type = 2 AND date_expiration <= ${Date.now()}`
     db.query(sql, (err, result) => {
         if(err) throw err
         //console.log(result)
         result.forEach(sanction => {
-            member = members.get(sanction.user_id)
+            const member = members.get(sanction.user_id)
             if(member == undefined) return //console.log(sanction.user_id)
-            if(member.roles.get(config.roles.mute)) member.removeRole(mute_role).catch(e => { throw(e) })
+            try {
+                if(member.roles.cache.get(config.roles.mute.id)) member.roles.delete(mute_role)
+            } catch (e) {
+                //console.log(`Impossible de demute l'utilisateur avec l'id ${member.id}`)
+            }
+
         });
     })
 }
@@ -43,14 +48,17 @@ module.exports.checkBan = async (guild) => {
         if(err) throw err
         //console.log(result)
         result.forEach(sanction => {
-            
             guild.fetchBan(sanction.user_id).then(ban => {
                 //console.log(sanction.user_id)
-                console.log(ban.user.id) 
+                console.log(ban.user.id)
                 if(ban == undefined) return //console.log(sanction.user_id)
                 if(ban.user)
-                guild.unban(ban.user.id, "A purger sa peine")
+                guild.members.unban(ban.user.id, "A purger sa peine")
+            }).catch(e => {
+                //return console.log(`Erreur: impossible de deban l'utilisateur avec l'id ${sanction.user_id} `)
             })
         });
     })
 }
+
+module.exports.db = db

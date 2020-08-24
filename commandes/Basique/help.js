@@ -1,6 +1,7 @@
-const { RichEmbed } = require('discord.js')
-const Categories = require("../../index").Categories
-const {config, Commande} = require('../../dependencies')
+const { MessageEmbed } = require('discord.js')
+const Categories = require("index").Categories
+const config = require("config/config")
+const Commande = require('Classes/Commande')
 class Help extends Commande {
     constructor() {
         super()
@@ -13,7 +14,7 @@ class Help extends Commande {
     async execute(message, args) {
 
         setTimeout(() => {
-            let embed = new RichEmbed().setAuthor("Commande d'aide").setDescription(`Préfix: ${config.prefix}`)
+            let embed = new MessageEmbed().setAuthor("Commande d'aide").setDescription(`Préfix: ${config.prefix}`)
             embed.setFooter(`Executé par ${message.author.username}#${message.author.discriminator}`)
             Array.from(Categories.keys()).forEach(key => {
                 embed.addField(key, Categories.get(key))

@@ -5,17 +5,20 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \\\"Error: no Events specified\\\" && exit 1",
-    "dev": "cross-env NODE_ENV=dev && nodemon index.js"
+    "dev": "nodemon index.js dev"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1",
+    "dependency-check": "^4.1.0",
+    "discord.js": "^12.3.1",
+    "mysql": "^2.18.1",
     "request": "^2.88.0",
-    "mysql": "^2.18.1"
+    "Classes": "file:Classes",
+    "config": "file:config",
+    "index": "file:./"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4",
-    "cross-env": "^7.0.2"
+    "nodemon": "^2.0.4"
   }
 }

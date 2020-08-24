@@ -1,3 +1,9 @@
+/*
+    Code venant du repo github de Swan
+    https://github.com/Skript-MC/Swan/blob/master/src/utils/padNumber.js
+    https://github.com/Skript-MC/Swan/blob/master/src/utils/toTimespan.js
+ */
+
 function padNumber(x) {
   return (x.toString().length < 2 ? `0${x}` : x).toString();
 }

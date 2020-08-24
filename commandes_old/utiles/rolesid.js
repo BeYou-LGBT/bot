@@ -1,4 +1,14 @@
-module.exports.run = async (client, message, args) => {
+const Commande = require("Classes/Commande")
+
+class roleId extends Commande {
+
+}
+
+
+
+
+
+/*module.exports.run = async (client, message, args) => {
     if (message.author.id !== '173542833364533249') return;
     if(message.deletable) message.delete().catch(err => console.log(err))
     let str = ""
@@ -8,4 +18,4 @@ module.exports.run = async (client, message, args) => {
     message.channel.send("```" + str + "```")
 }
 
-module.exports.description = "Commande de dev, utilisable que par WeeskyBDW"
+module.exports.description = "Commande de dev, utilisable que par WeeskyBDW"*/

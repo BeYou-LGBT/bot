@@ -1,7 +1,7 @@
-const config = require('../dependencies').config
+const config = require('config/config')
 const lastmessage = new Map();
 const msgstimer = new Map();
-const Client = require('../index.js').Client
+const Client = require('index').Client
 /*const Modclass = require('./Utils/Moderation.js')
 const Moderation = new Modclass()*/
 module.exports.init = function init(members) {
@@ -51,7 +51,7 @@ module.exports.antispam = async (message) => {
         if (msgstimer.get(message.member.id) > 2) {
             //warn(message.member.id)
             msgstimer.set(message.member.id, 0)
-            message.channel.fetchMessages({limit: 4}).then(messages => message.channel.bulkDelete(messages.filter(msg => msg.author.id === message.author.id))).then()
+            message.channel.messages.fetch({limit: 4}).then(messages => message.channel.bulkDelete(messages.filter(msg => msg.author.id === message.author.id))).then()
 
             return;
         } else {
@@ -60,7 +60,7 @@ module.exports.antispam = async (message) => {
 
 
     })
-    promise.then(setTimeout(function () {
+    promise.then(() => setTimeout(function () {
         msgstimer.set(message.member.id, 0)
     }, 5000))
 }

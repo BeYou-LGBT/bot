@@ -1,4 +1,4 @@
-const Commande = require("../../dependencies").Commande
+const Commande = require("Classes/Commande")
 
 class Choix extends Commande {
 
