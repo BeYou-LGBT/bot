@@ -3,4 +3,4 @@ node_modules
 package-lock.json
 
 Database
-login.json
+config/login.json
