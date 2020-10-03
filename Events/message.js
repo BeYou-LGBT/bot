@@ -1,9 +1,6 @@
 const config = require("config/config")
 const { MessageEmbed } = require("discord.js")
 
-/*WaillProtect.antipub(message);
-WaillProtect.antispammentions(message);
-WaillProtect.antispam(message);*/
 module.exports.init = (message) => {
     if (message.channel.id === config.channels.suggestions.id) suggestions(message)
     commandeHandler(message)

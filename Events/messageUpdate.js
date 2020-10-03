@@ -3,7 +3,6 @@ const Client = require("index").Client
 const config = require("config/config")
 module.exports.log = (oldmsg, newmsg) => {
     if(oldmsg.author.bot) return;
-    //WaillProtect.antipub(newmsg);
     let embed = new MessageEmbed().setAuthor(`Message de ${oldmsg.author.username}#${oldmsg.author.discriminator} édité`)
         .addField("Dans le salon", "<#" + oldmsg.channel.id + ">")
         .addField("Avant", oldmsg.content)

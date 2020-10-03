@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 const fs = require('fs');
 const config = require("config/config")
 const login = require('./config/login')
-const Client = new Discord.Client();
+Client = new Discord.Client();
 let Commandes = new Array();
 const Categories = new Map()
 const Path = require("path")
@@ -11,8 +11,6 @@ Client.login(login.token).catch(e => console.log(`Erreur lors de la connexion à
 
 const sql = require("./Utils/sql")
 sql.SQLTestConnexion()
-module.exports.Client = Client;
-//const WaillProtect = require('./Protection.js')
 console.log("Chargement des commandes");
 let i = 0;
 
@@ -27,7 +25,7 @@ function loadcommandes(path) {
 
                 //chargement des infos pour la commande help
                 const parentFile = Path.resolve(path, fichier).toString().replace("\\" + fichier, "").split("\\").pop()
-                if(Categories.get(parentFile) == undefined) Categories.set(parentFile, "")
+                if(Categories.get(parent:qile) == undefined) Categories.set(parentFile, "")
                 Categories.set(parentFile, Categories.get(parentFile) + " `" + fichier.slice(0, -3) + "`")
 
             }
