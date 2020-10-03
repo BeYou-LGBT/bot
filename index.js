@@ -25,7 +25,7 @@ function loadcommandes(path) {
 
                 //chargement des infos pour la commande help
                 const parentFile = Path.resolve(path, fichier).toString().replace("\\" + fichier, "").split("\\").pop()
-                if(Categories.get(parent:qile) == undefined) Categories.set(parentFile, "")
+                if(Categories.get(parentFile) == undefined) Categories.set(parentFile, "")
                 Categories.set(parentFile, Categories.get(parentFile) + " `" + fichier.slice(0, -3) + "`")
 
             }
