@@ -1,26 +1,18 @@
 {
   "prefix": "/",
-  "server": "734033975000956978",
+  "server": "627470175872090132",
 
   "channels": {
-    "join": "734033975038967862",
-    "suggestions": "734033975529570379",
-    "log": "734033975697211511"
+    "join": "porte",
+    "suggestions": "suggestions_test",
+    "log": "logs"
   },
 
   "roles": {
-    "staff": "734033975034642479",
-    "mute": "734033975038967859",
-    "membre": "734033975034642475",
-    "help_noctif": "734033975034642476"
-  },
+    "staff": "Développeur Bot",
+    "mute": "Mute"
+  }
 
-  "messages": {
-    "access": "734157660156330044",
-    "sondage": "734157459114950688"
-  },
-
-  "club_category_id": "617478647741415454"
 
 
 
