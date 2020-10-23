@@ -16,22 +16,23 @@ Client.on('ready', function(){
 
 Client.on('message', message => {
     if(message.author.bot || message.system) return;
-    require("./Events/message").init(message)
+    try {
+        require("./Events/message").init(message)
+    } catch (e) {
+        console.log("Erreur lors de l'event message: " + e)
+    }
+
 
 })
 
-Client.on('guildMemberAdd', membre => {
-    config.channels.join.send(`Bienvenue <@${membre.id}> sur Pewed, je t'invite à aller lire les <#445271324999417856> du serveur et à les valider pour avoir accès au reste du discord`)
-})
-Client.on('guildMemberRemove', membre => {
-    config.channels.join.send(`<@${membre.user.tag}> a quitté le serveur`)
-})
 
 Client.on('messageUpdate', (oldmsg, newmsg) => {
-    require("./Events/messageUpdate").log(oldmsg, newmsg)
+    try {
+        require("./Events/messageUpdate").log(oldmsg, newmsg)
+    } catch (e) {
+        console.log("Erreur lors de l'event message: " + e)
+    }
 })
 
-Client.on('messageDelete', msg => {
-    require("./Events/messageDelete").log(msg)
-})
+
 

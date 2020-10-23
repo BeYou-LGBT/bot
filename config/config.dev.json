@@ -1,16 +1,20 @@
 {
   "prefix": "/",
-  "server": "627470175872090132",
+  "servers": {
+    "beyou": "627470175872090132",
+    "log": "697912246378168419"
+  },
 
   "channels": {
-    "join": "porte",
     "suggestions": "suggestions_test",
-    "log": "logs"
+    "log": "logs",
+    "general-1": "commandes_bot"
   },
 
   "roles": {
     "staff": "Développeur Bot",
-    "mute": "Mute"
+    "mute": "Mute",
+    "communaute": "lvl 1"
   }
 
 

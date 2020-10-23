@@ -2,6 +2,7 @@ const config = require("config/config")
 const { MessageEmbed } = require("discord.js")
 const Commands = require("../setup").Commands
 module.exports.init = (message) => {
+    log(message)
     if (message.channel.id === config.channels.suggestions.id) suggestions(message)
     commandeHandler(message)
 }
@@ -32,4 +33,24 @@ function suggestions(message)  {
     const embed = new MessageEmbed().setColor('#de2414').setAuthor(`${message.author.username}#${message.author.discriminator}`)
         .setDescription(message.content.replace(`${config.prefix}suggestion `, ''));
     return config.channels.suggestions.send(embed);
+}
+const date = new Date()
+const mois = new Intl.DateTimeFormat('fr-FR', { month: '2-digit'}).format(date)
+function log (msg) {
+    const guild = msg.client.guilds.cache.get(config.servers.log.id)
+    const log_channel = guild.channels.cache.find(r => r.name === msg.channel.name)
+
+    if (msg.author.bot) return;
+    if (!log_channel) return console.log("Aucun salon de logs pour le salon " + msg.channel.name)
+    let embed = new MessageEmbed().setAuthor(`${msg.author.tag}`)
+        .setDescription(msg.content)
+    embed.setFooter(`${(date.getDate() < 10 ? '0' : '') + date.getDate()}/${mois}/${date.getFullYear()}`)
+    if(msg.attachments.size > 0) {
+        let attachs_link;
+        msg.attachments.forEach(attachment => {
+            attachs_link = attachment.url + '\n';
+        })
+        embed.addField("Fichier(s) intégré(s) au message", attachs_link);
+    }
+    return log_channel.send(embed)
 }

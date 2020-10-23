@@ -9,8 +9,8 @@ module.exports.init = (Client) => {
 function checkSanctions() {
     if (!sql.db) return
     setInterval(() => {
-        sql.checkMute(config.server).catch(e => { console.log(`Impossible d'unmute ${member} \n${e}`) })
-        sql.checkBan(config.server).catch(e => console.log("Impossible de deban " + ban.user.id))
+        sql.checkMute(config.servers.beyou).catch(e => { console.log(`Impossible d'unmute ${member} \n${e}`) })
+        sql.checkBan(config.servers.beyou).catch(e => console.log("Impossible de deban " + ban.user.id))
 
     }, 5000)
 }
