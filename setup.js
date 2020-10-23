@@ -3,6 +3,7 @@ const Path = require('path')
 const Commands = new Array();
 let i = 0;
 const db = require("./Utils/sql").db
+const Categories = new Array()
 function loadCommands(path) {
     fs.readdir(path, (erreur, fichiers) => {
         if (erreur) console.log(`Erreur lors de la lecture des commandes: ${erreur}`)
@@ -14,6 +15,7 @@ function loadCommands(path) {
                 cmd.category = path.split("/").pop()
                 Commands.push(cmd)
                 i++
+                if (!Categories.includes(cmd.category)) Categories.push(cmd.category)
             }
         })
     })
@@ -29,4 +31,4 @@ function SQLTestConnexion() {
 exports.loadCommands = loadCommands
 exports.SQLTestConnexion = SQLTestConnexion
 exports.Commands = Commands;
-
+exports.Categories = Categories
