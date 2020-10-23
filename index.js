@@ -8,7 +8,7 @@ Client.login(login.token).catch(e => console.log(`Erreur lors de la connexion à
 console.log("Chargement des commandes");
 const setup = require("./setup.js")
 setup.loadCommands('./commandes')
-setup.SQLTestConnexion()
+//setup.SQLTestConnexion()
 Client.on('ready', function(){
     config.init(Client)
     require("./Events/ready").init(Client)

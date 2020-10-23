@@ -3,7 +3,7 @@ const config = require("config/config")
 module.exports.init = (Client) => {
     console.log("Chargement du bot terminé");
     Client.user.setActivity(`${config.prefix}help`)
-    checkSanctions()
+    //checkSanctions()
 }
 
 function checkSanctions() {
