@@ -16,7 +16,7 @@ class Commande {
 
         this.category = undefined
 
-        this.requiredRole = ["Visiteur"]
+        this.requiredRoles = ["Visiteur"]
 
         this.forbidenChannels = []
     }
