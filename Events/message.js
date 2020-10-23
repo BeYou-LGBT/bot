@@ -1,27 +1,25 @@
 const config = require("config/config")
 const { MessageEmbed } = require("discord.js")
-
+const Commands = require("../setup").Commands
 module.exports.init = (message) => {
     if (message.channel.id === config.channels.suggestions.id) suggestions(message)
     commandeHandler(message)
 }
 function commandeHandler(message) {
-    if(message.content.toLowerCase().slice(0,1) !== config.prefix) return;
+    if (message.content.toLowerCase().slice(0,1) !== config.prefix) return;
     let args = message.content.toLowerCase().split(' ');
-    Commandes.forEach(function (commande) {
-        let cmdsplit = commande.split('/').pop()
-        if (cmdsplit == args[0].replace(config.prefix, '') + '.js') {
-            //message.channel.send('Commande existante');
-            try {
-                let cmdfile = require(commande)
-                const cmd = new cmdfile()
-                cmd.execute(message, args)
-            } catch (err) {
-                console.log(err)
-            }
-        }
-    })
+    args[0] = args[0].slice(1)
+    let cmd = Commands.find(command => command.name == args[0] || command.alias.includes(args[0]))
+    if (!cmd) return message.channel.send(`La commande n'existe pas. Faites la commande \`${config.prefix}help\` pour voir les commandes disponibles`)
+    try {
+        cmd.execute(message, args)
+    } catch (err) {
+        console.log(err)
+    }
 }
+
+
+
 function suggestions(message)  {
     if (message.deletable) message.delete().catch(e => console.log(e))
     const embed = new MessageEmbed().setColor('#de2414').setAuthor(`${message.author.username}#${message.author.discriminator}`)

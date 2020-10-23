@@ -12,6 +12,10 @@ class Commande {
 
         this.exemple = "defaut WeeskyBDW#6172 test"
 
+        this.alias = []
+
+        this.category = undefined
+
         this.requiredRole = ["Visiteur"]
 
         this.forbidenChannels = []
