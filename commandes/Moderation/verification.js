@@ -1,8 +1,8 @@
 const Commande = require("Classes/Commande")
 const MessageEmbed = require("discord.js").MessageEmbed
 const config = require("config/config")
-const message_after_verif = `Bienvenue (membre) ! <:grenouilleLGBT:553325426643173376> \nPour choisir tes rôles, va voir dans <#${config.role_channel}> ,` +
-    `si tu as des questions n'hésites pas à en poser au staff dans <#${config.aide_question}> , mais pour avoir toutes les infos, fais la commande` +
+const message_after_verif = `Bienvenue (membre) ! <:grenouilleLGBT:553325426643173376> \nPour choisir tes rôles, va voir dans <#563715739920498703> ,` +
+    `si tu as des questions n'hésites pas à en poser au staff dans <#576789044474806281> , mais pour avoir toutes les infos, fais la commande` +
     "`!help` ^^`" + "\nNous te recommandons de mettre ton/tes pronoms dans ton nom sur le serveur"
 const embed = new MessageEmbed()
 class Verification extends Commande {
