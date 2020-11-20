@@ -14,7 +14,7 @@ class Verification extends Commande {
         this.usage = "validation @lapersonne"
         this.exemple = "v @WeeskyBDW#6172"
         this.alias = ["v", "verif", "vérif"]
-        this.requiredRoles = config.roles.staff
+        this.requiredRoles = config.roles.staff, config.roles.stagiaire
     }
     execute(message, args) {
         if(message.mentions.members.first() == undefined) return message.channel.send("Tu dois préciser une personne à valider en la mentionnant");
