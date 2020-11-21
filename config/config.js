@@ -1,4 +1,4 @@
-const env = process.argv[2] ? process.argv[2] : "dev"
+const env = process.argv[2] ? process.argv[2] : "prod"
 
 const config = env == "prod" ? require("config/config.json") : require("config/config.dev")
 
