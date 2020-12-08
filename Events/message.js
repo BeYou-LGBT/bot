@@ -32,7 +32,11 @@ function suggestions(message)  {
     if (message.deletable) message.delete().catch(e => console.log(e))
     const embed = new MessageEmbed().setColor('#de2414').setAuthor(`${message.author.username}#${message.author.discriminator}`)
         .setDescription(message.content.replace(`${config.prefix}suggestion `, ''));
-    return config.channels.suggestions.send(embed);
+    config.channels.suggestions.send(embed).then(message => {
+        message.react("✅").catch(e => console.log(e))
+        message.react("<:Neutral:785984262523977768>").catch(e => console.log(e))
+        message.react("❌").catch(e => console.log(e))
+    })
 }
 const date = new Date()
 const mois = new Intl.DateTimeFormat('fr-FR', { month: '2-digit'}).format(date)
