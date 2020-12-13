@@ -1,8 +1,0 @@
-const sqlite = require('sqlite3').verbose()
-const database = new sqlite.Database('./database.db')
-module.exports.run = async(Client, message, args) => {
-
-    if (args[1].toLowerCase() === 'create') {
-
-    }
-}
