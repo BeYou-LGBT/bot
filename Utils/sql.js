@@ -1,4 +1,5 @@
-/*const mysql = require("mysql")
+/*
+const mysql = require("mysql")
 const config = require("config/config")
 let sql = require("../config/login").sql
 let db = mysql.createConnection({
@@ -9,9 +10,10 @@ let db = mysql.createConnection({
     supportBigNumbers : true
 })
 
-
 module.exports.sanction = async (sanction_type, moderator_id, user_id, date_expiration, reason) => {
-    sql = `INSERT INTO sanctions (sanction_type, moderator_id, user_id, date, date_expiration, reason) VALUES (${sanction_type}, ${moderator_id}, ${user_id}, ${Date.now()}, ${Date.now() + date_expiration}, ${db.escape(reason)});`
+    // eslint-disable max-len
+    sql = `INSERT INTO sanctions (sanction_type, moderator_id, user_id, date, date_expiration, reason)
+    VALUES (${sanction_type}, ${moderator_id}, ${user_id}, ${Date.now()}, ${Date.now() + date_expiration}, ${db.escape(reason)});`
     db.query(sql, function(error) {if (error) throw error})
 }
 
@@ -53,4 +55,5 @@ module.exports.checkBan = async (guild) => {
     })
 }
 
-module.exports.db = db*/
+module.exports.db = db
+*/
