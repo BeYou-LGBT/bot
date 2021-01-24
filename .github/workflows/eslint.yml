@@ -16,9 +16,9 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: ./node_modules/
-          key: ${{ runner.os }}-build-f-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-build-f
+            ${{ runner.os }}-build-
       - name: Install Node v12
         uses: actions/setup-node@v1
         with:
