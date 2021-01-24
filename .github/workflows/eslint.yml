@@ -16,9 +16,9 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: ./node_modules/
-          key: ${{ runner.os }}-build-v1-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-build-v1
+            ${{ runner.os }}-build-
       - name: Install Node v12
         uses: actions/setup-node@v1
         with:
@@ -26,7 +26,7 @@ jobs:
 
       - name: Install ESLint v7
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install -g eslint@7
+        run: npm install eslint@7
 
       - name: Install ESLint Configs and Plugins
         if: steps.cache.outputs.cache-hit != 'true'
