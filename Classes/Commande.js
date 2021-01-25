@@ -1,28 +1,24 @@
-const cmdfile = require("index").Client;
-const path = require('path')
+/* eslint no-unused-vars: "off" */
 class Commande {
+  constructor() {
+    this.name = 'Nom par défaut';
 
-    constructor() {
+    this.description = 'Description par défaut';
 
-        this.name = "Nom par défaut";
+    this.usage = 'defaut <mention> <message>';
 
-        this.description = "Description par défaut";
+    this.exemple = 'defaut WeeskyBDW#6172 test';
 
-        this.usage = "defaut <mention> <message>";
+    this.alias = [];
 
-        this.exemple = "defaut WeeskyBDW#6172 test"
+    this.category = undefined;
 
-        this.alias = []
+    this.requiredRoles = ['Visiteur'];
 
-        this.category = undefined
+    this.forbidenChannels = [];
+  }
 
-        this.requiredRoles = ["Visiteur"]
-
-        this.forbidenChannels = []
-    }
-
-    execute(message, args) {}
+  execute(message, args) {}
 }
 
 module.exports = Commande;
-

@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \\\"Error: no Events specified\\\" && exit 1",
-    "dev": "nodemon index.js dev"
+    "dev": "nodemon index.js dev",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +21,10 @@
     "index": "file:./"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "v8-compile-cache": "^2.2.0"
   }
 }
