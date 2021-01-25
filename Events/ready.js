@@ -5,6 +5,7 @@ const sql = require('../Utils/sql');
 module.exports.init = (Client) => {
   console.log('Chargement du bot terminé');
   Client.user.setActivity(`${config.prefix}help`);
+  config.channels.presentation.messages.fetch({ limit: 50 });
   // checkSanctions()
 };
 

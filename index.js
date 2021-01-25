@@ -32,3 +32,11 @@ Client.on('messageUpdate', (oldmsg, newmsg) => {
     console.log(`Erreur lors de l'event message: ${e}`);
   }
 });
+
+Client.on('messageReactionAdd', (reaction, user) => {
+  try {
+    require('./Events/messageReactionAdd').init(reaction, user);
+  } catch (e) {
+    console.log(e);
+  }
+});

@@ -34,3 +34,4 @@ class Verification extends Commande {
 }
 
 module.exports = Verification;
+module.exports.messageAfterVerif = messageAfterVerif;

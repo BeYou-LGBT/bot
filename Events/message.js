@@ -59,5 +59,6 @@ function log(msg) {
 module.exports.init = (message) => {
   log(message);
   if (message.channel.id === config.channels.suggestions.id) suggestions(message);
+  if (message.channel.id === config.channels.presentation.id) message.react('✅');
   commandeHandler(message);
 };
