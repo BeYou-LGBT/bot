@@ -31,7 +31,7 @@ function suggestions(message) {
     .setDescription(message.content.replace(`${config.prefix}suggestion `, ''));
   config.channels.suggestions.send(embed).then((message) => {
     message.react('✅').catch((e) => console.log(e));
-    message.react('<:Neutral:785984262523977768>').catch((e) => console.log(e));
+    message.react('<:Neutral:668410388311965716>').catch((e) => console.log(e));
     message.react('❌').catch((e) => console.log(e));
   });
 }
