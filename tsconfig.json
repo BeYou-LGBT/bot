@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "outDir": "build",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "moduleResolution": "Node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@root/*": ["./*"],
+      "@app/*": ["./src/*"],
+      "@config/*": ["./config/*"],
+      "@dist/*": ["./build/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "config/**/*.ts",
+  ]
+}
