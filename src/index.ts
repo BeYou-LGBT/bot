@@ -3,7 +3,7 @@ import {
 	Client, DIService, IGuild, tsyringeDependencyRegistryEngine,
 } from 'discordx';
 import { importx } from '@discordx/importer';
-import {IntentsBitField, Message} from 'discord.js';
+import { IntentsBitField, Message } from 'discord.js';
 import 'dotenv/config';
 import { container } from 'tsyringe';
 import * as Sentry from '@sentry/node';

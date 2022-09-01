@@ -1,11 +1,11 @@
-import {Discord, Guard, On} from 'discordx';
-import {Settings} from '@config/settings';
-import {createSuggestion} from '@app/utils/createSuggestion';
-import {BotLogger} from '@app/core/BotLogger';
-import {Message, MessageType, TextChannel} from 'discord.js';
-import {injectable} from 'tsyringe';
-import {NotBot} from '@discordx/utilities';
-import {log} from "util";
+import { Discord, Guard, On } from 'discordx';
+import { Settings } from '@config/settings';
+import { createSuggestion } from '@app/utils/createSuggestion';
+import { BotLogger } from '@app/core/BotLogger';
+import { Message, MessageType, TextChannel } from 'discord.js';
+import { injectable } from 'tsyringe';
+import { NotBot } from '@discordx/utilities';
+import { log } from 'util';
 
 @Discord()
 @injectable()

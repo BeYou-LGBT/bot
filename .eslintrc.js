@@ -18,6 +18,7 @@ module.exports = {
 		'@typescript-eslint/no-unused-vars': 'off',
 		'no-unused-vars': 'off',
 		'import/prefer-default-export': 'off',
+		'no-mixed-spaces-and-tabs': 'off',
 		'object-curly-newline': ['error', {
 			ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
 			ObjectPattern: { minProperties: 4, multiline: true, consistent: true },
